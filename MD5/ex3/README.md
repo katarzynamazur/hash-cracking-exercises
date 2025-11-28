@@ -21,10 +21,10 @@ By completing this exercise, you will learn:
 ### Run with Docker
 
 ```bash 
-docker run -d -p 4002:4002 --name md5-crack ghcr.io/katarzynamazur/md5-crack-ex2:latest
+docker run -d -p 4003:4003 --name md5-crack ghcr.io/katarzynamazur/md5-crack-ex3:latest
 ```
 
-The API will be available at: **http://localhost:4002**
+The API will be available at: **http://localhost:4003**
 
 ---
 
@@ -35,27 +35,27 @@ The API will be available at: **http://localhost:4002**
 Request a new hash challenge:
 
 ```bash
-curl http://localhost:4002/hash
+curl http://localhost:4003/hash
 ```
 
 **Response:**
 ```json
 {
-  "hash": "76a2173be6393254e72ffa4d6df1030a",
+  "hash": "202cb962ac59075b964b07152d234b70",
   "message": "Try to crack this hash!"
 }
 ```
 
 ### Step 2: Crack the Hash
 
-> 💡 **HINT**: The correct password is hidden somewhere among all 4-letter lowercase combinations.
+> 💡 **HINT**: Think of a short, 3‑digit numeric code - nothing more, nothing less..
 
 ### Step 3: Submit Your Answer
 
 ```bash
-curl -X POST http://localhost:4002/submit \
+curl -X POST http://localhost:4003/submit \
   -H "Content-Type: application/json" \
-  -d '{"word":"passwd"}'
+  -d '{"word":"123"}'
 ```
 
 **Success Response:**
@@ -63,8 +63,8 @@ curl -X POST http://localhost:4002/submit \
 {
   "success": true,
   "message": "Congratulations! Hash cracked!",
-  "word": "passwd",
-  "hash": "76a2173be6393254e72ffa4d6df1030a"
+  "word": "123",
+  "hash": "202cb962ac59075b964b07152d234b70"
 }
 ```
 
